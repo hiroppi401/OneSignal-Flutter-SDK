@@ -37,6 +37,17 @@ android {
     }
 }
 
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+
+    // add this line for onesignal_flutter to work in android device
+    afterEvaluate {
+        android {
+            compileSdkVersion 34
+        }
+    }
+}
+
 dependencies {
     implementation 'com.onesignal:OneSignal:5.1.20'
 }
